@@ -1,5 +1,5 @@
 // Service worker: makes the portfolio installable and usable offline.
-const VERSION = 'v1';
+const VERSION = 'v2';
 const CACHE = 'portfolio-' + VERSION;
 const CORE = [
   './',
