@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kathiravan Ezhumalai</title>
+<meta name="description" content="Kathiravan Ezhumalai — Senior React Developer and Frontend Lead with 8+ years building enterprise web applications.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f8fa; --surface:#ffffff; --text:#14171f; --muted:#5b6475; --line:#e3e6ec;
+  --accent:#1f4e8c; --accent-soft:#e8eef8; --chip:#eef1f5;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1116; --surface:#161b23; --text:#e7eaf0; --muted:#9aa3b2; --line:#262d39;
+    --accent:#7fb0f5; --accent-soft:#1a2638; --chip:#1e2530;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1116; --surface:#161b23; --text:#e7eaf0; --muted:#9aa3b2; --line:#262d39;
+  --accent:#7fb0f5; --accent-soft:#1a2638; --chip:#1e2530;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px}
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:16px}
+nav .brand{font-weight:700;color:var(--text)}
+nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;font-size:14px}
+nav ul a{color:var(--muted)}
+nav ul a:hover{color:var(--text);text-decoration:none}
+@media (max-width:640px){nav ul{display:none}}
+
+header.hero{padding:72px 0 56px}
+.eyebrow{font:500 13px/1 "JetBrains Mono",monospace;color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
+h1{font-size:clamp(34px,6vw,54px);line-height:1.08;margin:14px 0 12px;letter-spacing:-.02em}
+.role{font-size:clamp(18px,2.6vw,22px);color:var(--muted);margin:0 0 20px;font-weight:500}
+.lede{max-width:680px;font-size:17px;margin:0 0 28px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:8px;font-weight:600;font-size:15px;border:1px solid var(--line);color:var(--text);background:var(--surface)}
+.btn:hover{text-decoration:none;border-color:var(--accent)}
+.btn.primary{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+.meta{margin-top:22px;color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;gap:6px 18px}
+.badge{display:inline-block;padding:2px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-weight:600;font-size:13px}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 64px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
+.stat b{display:block;font-size:28px;letter-spacing:-.02em}
+.stat span{color:var(--muted);font-size:14px}
+@media (max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+section{padding:8px 0 56px}
+h2{font-size:24px;margin:0 0 22px;letter-spacing:-.01em;display:flex;align-items:center;gap:12px}
+h2::after{content:"";flex:1;height:1px;background:var(--line)}
+
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media (max-width:720px){.projects{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px;display:flex;flex-direction:column}
+.card .kind{font:500 12px/1 "JetBrains Mono",monospace;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.card h3{margin:8px 0 12px;font-size:19px}
+.card ul{margin:0 0 16px;padding-left:18px;color:var(--text)}
+.card li{margin:4px 0;font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.tag{background:var(--chip);color:var(--muted);font-size:12.5px;padding:3px 9px;border-radius:6px}
+.hl{color:var(--accent);font-weight:600}
+
+.timeline{border-left:2px solid var(--line);margin-left:6px}
+.job{position:relative;padding:0 0 30px 24px}
+.job::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.job .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px}
+.job h3{margin:0;font-size:18px}
+.job .when{color:var(--muted);font-size:14px;font-family:"JetBrains Mono",monospace}
+.job .org{color:var(--accent);font-weight:600;margin:2px 0 8px}
+.job ul{margin:0;padding-left:18px}
+.job li{margin:4px 0;font-size:15px}
+
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media (max-width:720px){.skills{grid-template-columns:1fr}}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
+.skill h4{margin:0 0 10px;font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:720px){.two{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);padding:40px 0 56px}
+footer h2::after{display:none}
+.contact{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+.small{color:var(--muted);font-size:13px;margin-top:28px}
+@media print{nav{display:none}body{background:#fff}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Kathiravan E.</a>
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap" id="top">
+  <header class="hero">
+    <div class="eyebrow">Portfolio</div>
+    <h1>Kathiravan Ezhumalai</h1>
+    <p class="role">Senior React Developer · Frontend Lead</p>
+    <p class="lede">I design and ship fast, accessible, enterprise-scale web applications with React 18, TypeScript, Redux Toolkit, GraphQL and Micro Frontend Architecture, delivered for US and EU clients over 8+ years.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:kathir.kmr52@gmail.com">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/kathiravan-ezhumalai-31a385133" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <div class="meta">
+      <span>📍 Chennai | Bangalore</span>
+      <span class="badge">Immediate Joiner</span>
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><b>8+</b><span>years in frontend</span></div>
+    <div class="stat"><b>10+</b><span>enterprise projects</span></div>
+    <div class="stat"><b>68 → 94</b><span>Lighthouse score</span></div>
+    <div class="stat"><b>85%</b><span>unit-test coverage</span></div>
+  </div>
+
+  <section id="projects">
+    <h2>Selected projects</h2>
+    <div class="projects">
+      <article class="card">
+        <div class="kind">UCaaS / CCaaS platform</div>
+        <h3>Worktual</h3>
+        <ul>
+          <li>Architected and built the platform from scratch with <span class="hl">30+</span> reusable, type-safe React components.</li>
+          <li>Cut API calls by <span class="hl">25%</span> with Redux Toolkit caching and memoization.</li>
+          <li>Improved load performance by <span class="hl">35%</span>; Lighthouse 92+, 85% test coverage.</li>
+        </ul>
+        <div class="tags"><span class="tag">React 18</span><span class="tag">TypeScript</span><span class="tag">Redux Toolkit</span><span class="tag">Ant Design</span><span class="tag">SASS</span><span class="tag">Jest</span></div>
+      </article>
+
+      <article class="card">
+        <div class="kind">E-commerce web application</div>
+        <h3>Bosch</h3>
+        <ul>
+          <li>Built catalog, search and filtering, cart, checkout and payments for <span class="hl">2,000+</span> SKUs.</li>
+          <li>Reduced over-fetching by <span class="hl">40%</span> with GraphQL; pagination and infinite scroll.</li>
+          <li>JWT auth, wishlist and order history; UX work lifted conversion by <span class="hl">15%</span>.</li>
+        </ul>
+        <div class="tags"><span class="tag">React</span><span class="tag">Material UI</span><span class="tag">GraphQL</span><span class="tag">Apollo</span><span class="tag">Magento 2</span><span class="tag">Adobe Commerce</span></div>
+      </article>
+
+      <article class="card">
+        <div class="kind">Financial services portal</div>
+        <h3>Northwestern Mutual</h3>
+        <ul>
+          <li>Customer-facing features for a portal serving <span class="hl">100K+</span> users.</li>
+          <li>Financial charts and sortable, filterable data tables over CRUD REST APIs.</li>
+          <li>Load time <span class="hl">4.2s → 2.5s</span>, Time to Interactive down 40%, 100+ test cases.</li>
+        </ul>
+        <div class="tags"><span class="tag">React</span><span class="tag">Redux Toolkit</span><span class="tag">Luna Design System</span><span class="tag">Jest</span><span class="tag">WCAG</span></div>
+      </article>
+
+      <article class="card">
+        <div class="kind">Micro frontend e-commerce</div>
+        <h3>Nu Skin</h3>
+        <ul>
+          <li><span class="hl">4</span> independently deployable modules with Webpack Module Federation.</li>
+          <li>Deployment frequency up <span class="hl">50%</span>; shared state via Redux, Context and a custom event bus.</li>
+          <li>Mobile-first, WCAG-compliant UI; 100+ bugs fixed, stability up 30%.</li>
+        </ul>
+        <div class="tags"><span class="tag">React</span><span class="tag">Module Federation</span><span class="tag">Webpack</span><span class="tag">Context API</span><span class="tag">Foundation UI</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="timeline">
+      <div class="job">
+        <div class="top"><h3>Consultant / Senior React Developer</h3><span class="when">Oct 2024 – Aug 2026</span></div>
+        <div class="org">Infosys Limited, Chennai</div>
+        <ul>
+          <li>Led frontend architecture for 3+ enterprise accounts supporting 50K+ end users.</li>
+          <li>Cut page load by 35% (4.5s → 2.9s) via code splitting, lazy loading and memoization.</li>
+          <li>Delivered 15+ features across onshore/offshore Agile teams; mentored 2 junior developers.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="top"><h3>UI Developer</h3><span class="when">Nov 2019 – Aug 2023</span></div>
+        <div class="org">Vectone India Mobile Services Pvt Ltd</div>
+        <ul>
+          <li>Built responsive UCaaS/CCaaS platforms for 10K+ enterprise users globally.</li>
+          <li>Created a 50+ component library that reduced development time by 30%.</li>
+          <li>Integrated 20+ REST APIs; turned Figma and Adobe XD designs into WCAG-compliant React UI.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="top"><h3>Senior Software Developer</h3><span class="when">May 2017 – Oct 2019</span></div>
+        <div class="org">Innospire Systems Corporation</div>
+        <ul>
+          <li>Built hybrid mobile apps for US clients, improving mobile performance by 40%.</li>
+          <li>Owned features end to end, from requirements through testing and debugging.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill"><h4>Frontend</h4><div class="tags"><span class="tag">React 18</span><span class="tag">TypeScript</span><span class="tag">JavaScript ES6+</span><span class="tag">Next.js</span><span class="tag">HTML5</span><span class="tag">CSS3 / SASS</span><span class="tag">Bootstrap</span></div></div>
+      <div class="skill"><h4>State &amp; UI</h4><div class="tags"><span class="tag">Redux Toolkit</span><span class="tag">React Hooks</span><span class="tag">Context API</span><span class="tag">React Hook Form</span><span class="tag">Ant Design</span><span class="tag">Material UI</span></div></div>
+      <div class="skill"><h4>Architecture</h4><div class="tags"><span class="tag">Micro Frontends</span><span class="tag">Module Federation</span><span class="tag">Webpack</span><span class="tag">GraphQL</span><span class="tag">Apollo Client</span><span class="tag">REST APIs</span></div></div>
+      <div class="skill"><h4>Testing &amp; performance</h4><div class="tags"><span class="tag">Jest</span><span class="tag">React Testing Library</span><span class="tag">Code splitting</span><span class="tag">Lazy loading</span><span class="tag">Memoization</span></div></div>
+      <div class="skill"><h4>Accessibility</h4><div class="tags"><span class="tag">WCAG 2.1</span><span class="tag">ADA</span><span class="tag">ARIA</span><span class="tag">Responsive design</span><span class="tag">Cross-browser</span></div></div>
+      <div class="skill"><h4>Tools</h4><div class="tags"><span class="tag">Git / GitHub</span><span class="tag">Jira</span><span class="tag">Azure DevOps</span><span class="tag">Figma</span><span class="tag">CI/CD</span><span class="tag">GitHub Copilot</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education &amp; highlights</h2>
+    <div class="two">
+      <div class="skill">
+        <h4>Education</h4>
+        <b>Master of Computer Applications (MCA)</b><br>
+        SVS Institute of Computer Application, Anna University<br>
+        <span style="color:var(--muted)">2014 · First Class with Distinction (72%)</span>
+      </div>
+      <div class="skill">
+        <h4>Highlights</h4>
+        <ul style="margin:0;padding-left:18px">
+          <li>90%+ SonarQube quality gate</li>
+          <li>0 critical production bugs for 12 months</li>
+          <li>20+ knowledge-sharing sessions led</li>
+          <li>English (professional), Tamil (native)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Let's work together</h2>
+    <p style="margin:0;color:var(--muted)">Open to Senior React / Frontend Lead roles. Available to join immediately.</p>
+    <div class="contact">
+      <a class="btn primary" href="mailto:kathir.kmr52@gmail.com">kathir.kmr52@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/kathiravan-ezhumalai-31a385133" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <p class="small">© 2026 Kathiravan Ezhumalai</p>
+  </div>
+</footer>
+</body>
+</html>
