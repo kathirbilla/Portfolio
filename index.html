@@ -4,102 +4,183 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kathiravan Ezhumalai</title>
-<meta name="description" content="Kathiravan Ezhumalai — Senior React Developer and Frontend Lead with 8+ years building enterprise web applications.">
+<meta name="description" content="Kathiravan Ezhumalai — Senior React Developer and Frontend Lead with 8+ years building fast, accessible enterprise web applications.">
+<meta name="theme-color" content="#0b0b1a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f7f8fa; --surface:#ffffff; --text:#14171f; --muted:#5b6475; --line:#e3e6ec;
-  --accent:#1f4e8c; --accent-soft:#e8eef8; --chip:#eef1f5;
+  --bg:#0b0b1a; --bg2:#12122a; --card:rgba(255,255,255,.05); --card-b:rgba(255,255,255,.10);
+  --text:#f3f4ff; --muted:#a5a8c8;
+  --c1:#7c5cff; --c2:#ff4ecd; --c3:#00d4ff; --c4:#ffb547; --c5:#2ee6a6;
+  --grad:linear-gradient(120deg,var(--c1),var(--c2) 35%,var(--c4) 65%,var(--c3));
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#0e1116; --surface:#161b23; --text:#e7eaf0; --muted:#9aa3b2; --line:#262d39;
-    --accent:#7fb0f5; --accent-soft:#1a2638; --chip:#1e2530;
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#f6f5ff; --bg2:#ffffff; --card:rgba(255,255,255,.75); --card-b:rgba(80,60,200,.14);
+    --text:#17142e; --muted:#5a5878;
+    --c1:#6a45ff; --c2:#e0249f; --c3:#0094c8; --c4:#e08600; --c5:#0aa874;
   }
 }
-:root[data-theme="dark"]{
-  --bg:#0e1116; --surface:#161b23; --text:#e7eaf0; --muted:#9aa3b2; --line:#262d39;
-  --accent:#7fb0f5; --accent-soft:#1a2638; --chip:#1e2530;
+:root[data-theme="light"]{
+  --bg:#f6f5ff; --bg2:#ffffff; --card:rgba(255,255,255,.75); --card-b:rgba(80,60,200,.14);
+  --text:#17142e; --muted:#5a5878;
+  --c1:#6a45ff; --c2:#e0249f; --c3:#0094c8; --c4:#e08600; --c5:#0aa874;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
-.wrap{max-width:960px;margin:0 auto;padding:0 16px}
-nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:16px}
-nav .brand{font-weight:700;color:var(--text)}
-nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;font-size:14px}
-nav ul a{color:var(--muted)}
-nav ul a:hover{color:var(--text);text-decoration:none}
-@media (max-width:640px){nav ul{display:none}}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 "Plus Jakarta Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px;position:relative;z-index:1}
 
-header.hero{padding:72px 0 56px}
-.eyebrow{font:500 13px/1 "JetBrains Mono",monospace;color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
-h1{font-size:clamp(34px,6vw,54px);line-height:1.08;margin:14px 0 12px;letter-spacing:-.02em}
-.role{font-size:clamp(18px,2.6vw,22px);color:var(--muted);margin:0 0 20px;font-weight:500}
-.lede{max-width:680px;font-size:17px;margin:0 0 28px}
+/* ---------- animated background ---------- */
+.bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.blob{position:absolute;width:46vmax;height:46vmax;border-radius:50%;filter:blur(90px);opacity:.38;mix-blend-mode:screen;animation:float 22s ease-in-out infinite}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]) .blob{mix-blend-mode:multiply;opacity:.22}}
+:root[data-theme="light"] .blob{mix-blend-mode:multiply;opacity:.22}
+.b1{background:var(--c1);top:-12vmax;left:-10vmax}
+.b2{background:var(--c2);top:20vh;right:-14vmax;animation-delay:-6s;animation-duration:26s}
+.b3{background:var(--c3);bottom:-18vmax;left:20vw;animation-delay:-12s;animation-duration:30s}
+@keyframes float{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(8vmax,6vmax) scale(1.12)}
+  66%{transform:translate(-6vmax,4vmax) scale(.92)}
+}
+.grid{position:absolute;inset:0;background-image:linear-gradient(var(--card-b) 1px,transparent 1px),linear-gradient(90deg,var(--card-b) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at 50% 0%,#000 20%,transparent 70%);opacity:.5}
+
+/* ---------- progress + nav ---------- */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--grad);z-index:30}
+nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 70%,transparent);border-bottom:1px solid var(--card-b)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-weight:800;font-size:18px;display:flex;align-items:center;gap:10px}
+.logo i{width:30px;height:30px;border-radius:9px;background:var(--grad);background-size:200% 200%;animation:shift 6s ease infinite;display:grid;place-items:center;font-style:normal;color:#fff;font-size:14px}
+nav ul{display:flex;gap:6px;list-style:none;margin:0;padding:0}
+nav ul a{padding:7px 12px;border-radius:8px;color:var(--muted);font-size:14px;font-weight:600;transition:.25s}
+nav ul a:hover,nav ul a.on{color:var(--text);background:var(--card)}
+@media (max-width:680px){nav ul{display:none}}
+
+/* ---------- hero ---------- */
+.hero{min-height:calc(100vh - 62px);display:grid;align-content:center;padding:56px 0 40px}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 8px;border-radius:999px;background:var(--card);border:1px solid var(--card-b);font-size:13.5px;font-weight:600;width:max-content;max-width:100%}
+.pulse{width:9px;height:9px;border-radius:50%;background:var(--c5);box-shadow:0 0 0 0 var(--c5);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 0 transparent}}
+h1{font-size:clamp(40px,8.5vw,88px);line-height:1.02;letter-spacing:-.035em;margin:22px 0 14px;font-weight:800}
+.gt{background:var(--grad);background-size:250% 250%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shift 8s ease infinite}
+@keyframes shift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.typed{font-size:clamp(20px,3.2vw,28px);font-weight:700;color:var(--muted);min-height:1.5em}
+.typed b{color:var(--text)}
+.caret{display:inline-block;width:3px;height:1em;background:var(--c2);margin-left:3px;vertical-align:-3px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.lede{max-width:640px;font-size:17.5px;color:var(--muted);margin:16px 0 30px}
 .cta{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:8px;font-weight:600;font-size:15px;border:1px solid var(--line);color:var(--text);background:var(--surface)}
-.btn:hover{text-decoration:none;border-color:var(--accent)}
-.btn.primary{background:var(--accent);color:var(--bg);border-color:var(--accent)}
-.meta{margin-top:22px;color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;gap:6px 18px}
-.badge{display:inline-block;padding:2px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-weight:600;font-size:13px}
+.btn{position:relative;display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:12px;font-weight:700;font-size:15px;border:1px solid var(--card-b);background:var(--card);transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-3px)}
+.btn.primary{border:0;color:#fff;background:var(--grad);background-size:200% 200%;animation:shift 6s ease infinite;box-shadow:0 10px 30px -10px var(--c2)}
+.btn.primary:hover{box-shadow:0 16px 40px -10px var(--c1)}
+.loc{margin-top:26px;color:var(--muted);font-size:14.5px}
+.scroll{margin-top:54px;width:26px;height:42px;border:2px solid var(--card-b);border-radius:14px;position:relative}
+.scroll::after{content:"";position:absolute;left:50%;top:8px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:var(--c3);animation:wheel 1.8s infinite}
+@keyframes wheel{to{transform:translateY(14px);opacity:0}}
 
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 64px}
-.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
-.stat b{display:block;font-size:28px;letter-spacing:-.02em}
+/* ---------- stats ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:0 0 90px}
+@media (max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{padding:22px;border-radius:18px;background:var(--card);border:1px solid var(--card-b);position:relative;overflow:hidden}
+.stat::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:var(--accent)}
+.stat b{display:block;font-size:clamp(28px,4vw,38px);font-weight:800;letter-spacing:-.02em;color:var(--accent)}
 .stat span{color:var(--muted);font-size:14px}
-@media (max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}}
 
-section{padding:8px 0 56px}
-h2{font-size:24px;margin:0 0 22px;letter-spacing:-.01em;display:flex;align-items:center;gap:12px}
-h2::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---------- sections ---------- */
+section{padding:0 0 96px}
+.kicker{font:500 13px/1 "JetBrains Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--c3)}
+h2{font-size:clamp(30px,4.6vw,46px);letter-spacing:-.03em;margin:10px 0 34px;font-weight:800;line-height:1.1}
 
-.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-@media (max-width:720px){.projects{grid-template-columns:1fr}}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px;display:flex;flex-direction:column}
-.card .kind{font:500 12px/1 "JetBrains Mono",monospace;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
-.card h3{margin:8px 0 12px;font-size:19px}
-.card ul{margin:0 0 16px;padding-left:18px;color:var(--text)}
-.card li{margin:4px 0;font-size:15px}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
-.tag{background:var(--chip);color:var(--muted);font-size:12.5px;padding:3px 9px;border-radius:6px}
-.hl{color:var(--accent);font-weight:600}
+/* ---------- marquee ---------- */
+.marquee{overflow:hidden;border-block:1px solid var(--card-b);padding:18px 0;margin:0 0 96px;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.track{display:flex;gap:14px;width:max-content;animation:scroll 38s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.chip{white-space:nowrap;padding:9px 16px;border-radius:999px;font-weight:700;font-size:14.5px;background:var(--card);border:1px solid var(--card-b)}
+.chip:nth-child(5n+1){color:var(--c1)}.chip:nth-child(5n+2){color:var(--c2)}.chip:nth-child(5n+3){color:var(--c3)}.chip:nth-child(5n+4){color:var(--c4)}.chip:nth-child(5n){color:var(--c5)}
 
-.timeline{border-left:2px solid var(--line);margin-left:6px}
-.job{position:relative;padding:0 0 30px 24px}
-.job::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
-.job .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px}
-.job h3{margin:0;font-size:18px}
-.job .when{color:var(--muted);font-size:14px;font-family:"JetBrains Mono",monospace}
-.job .org{color:var(--accent);font-weight:600;margin:2px 0 8px}
-.job ul{margin:0;padding-left:18px}
-.job li{margin:4px 0;font-size:15px}
+/* ---------- projects ---------- */
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media (max-width:760px){.projects{grid-template-columns:1fr}}
+.card{position:relative;padding:28px;border-radius:22px;background:var(--card);border:1px solid var(--card-b);transition:transform .2s ease,box-shadow .3s;transform-style:preserve-3d;overflow:hidden}
+.card::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;background:var(--grad);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .3s}
+.card:hover::after{opacity:1}
+.card:hover{box-shadow:0 24px 60px -24px var(--accent)}
+.glow{position:absolute;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,var(--accent),transparent 65%);opacity:0;transform:translate(-50%,-50%);pointer-events:none;transition:opacity .3s;mix-blend-mode:screen}
+.card:hover .glow{opacity:.22}
+.icon{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:22px;background:color-mix(in srgb,var(--accent) 18%,transparent);margin-bottom:16px}
+.kind{font:500 12px/1 "JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--accent)}
+.card h3{margin:8px 0 12px;font-size:23px;letter-spacing:-.01em}
+.card ul{margin:0 0 18px;padding-left:18px;color:var(--muted)}
+.card li{margin:6px 0;font-size:15px}
+.card li b{color:var(--text)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:7px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--text)}
 
-.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-@media (max-width:720px){.skills{grid-template-columns:1fr}}
-.skill{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
-.skill h4{margin:0 0 10px;font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+/* ---------- timeline ---------- */
+.timeline{position:relative;padding-left:34px}
+.timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:3px;border-radius:3px;background:linear-gradient(var(--c1),var(--c2),var(--c3))}
+.job{position:relative;padding:22px 24px;margin-bottom:18px;border-radius:18px;background:var(--card);border:1px solid var(--card-b)}
+.job::before{content:"";position:absolute;left:-33px;top:28px;width:17px;height:17px;border-radius:50%;background:var(--bg);border:4px solid var(--accent);box-shadow:0 0 18px var(--accent)}
+.job .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;align-items:baseline}
+.job h3{margin:0;font-size:19px}
+.when{font:500 13px "JetBrains Mono",monospace;color:var(--accent)}
+.org{font-weight:700;color:var(--muted);margin:2px 0 10px}
+.job ul{margin:0;padding-left:18px;color:var(--muted)}
+.job li{margin:5px 0;font-size:15px}
+
+/* ---------- skills ---------- */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:860px){.skills{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.skills{grid-template-columns:1fr}}
+.skill{padding:22px;border-radius:18px;background:var(--card);border:1px solid var(--card-b);transition:transform .25s}
+.skill:hover{transform:translateY(-4px)}
+.skill h4{margin:0 0 12px;font-size:15px;display:flex;align-items:center;gap:10px}
+.skill h4 span{width:10px;height:10px;border-radius:3px;background:var(--accent)}
+.bar{height:6px;border-radius:6px;background:var(--card-b);margin:0 0 14px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,var(--accent),var(--c2));transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.in .bar i{width:var(--w)}
 
 .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media (max-width:720px){.two{grid-template-columns:1fr}}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+.two ul{margin:0;padding-left:18px;color:var(--muted)}
+.two li{margin:5px 0}
 
-footer{border-top:1px solid var(--line);padding:40px 0 56px}
-footer h2::after{display:none}
-.contact{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
-.small{color:var(--muted);font-size:13px;margin-top:28px}
-@media print{nav{display:none}body{background:#fff}}
+/* ---------- contact ---------- */
+.contact{position:relative;text-align:center;padding:64px 22px;border-radius:28px;overflow:hidden;border:1px solid var(--card-b);background:var(--card);margin-bottom:60px}
+.contact::before{content:"";position:absolute;inset:-40%;background:conic-gradient(from 0deg,var(--c1),var(--c2),var(--c4),var(--c3),var(--c1));opacity:.16;animation:spin 18s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.contact>*{position:relative}
+.contact h2{margin-bottom:12px}
+.contact p{color:var(--muted);margin:0 auto 28px;max-width:520px}
+.contact .cta{justify-content:center}
+footer{text-align:center;color:var(--muted);font-size:13.5px;padding:0 0 40px}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  .bar i{width:var(--w)}
+}
+@media print{.bg,nav,.progress,.scroll,.marquee{display:none}.reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
+<div class="progress" id="progress"></div>
+<div class="bg" aria-hidden="true"><div class="grid"></div><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
 
 <nav>
   <div class="wrap">
-    <a class="brand" href="#top">Kathiravan E.</a>
+    <a class="logo" href="#top"><i>KE</i>Kathiravan</a>
     <ul>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
@@ -111,152 +192,221 @@ footer h2::after{display:none}
 
 <main class="wrap" id="top">
   <header class="hero">
-    <div class="eyebrow">Portfolio</div>
-    <h1>Kathiravan Ezhumalai</h1>
-    <p class="role">Senior React Developer · Frontend Lead</p>
-    <p class="lede">I design and ship fast, accessible, enterprise-scale web applications with React 18, TypeScript, Redux Toolkit, GraphQL and Micro Frontend Architecture, delivered for US and EU clients over 8+ years.</p>
-    <div class="cta">
-      <a class="btn primary" href="mailto:kathir.kmr52@gmail.com">Email me</a>
-      <a class="btn" href="https://www.linkedin.com/in/kathiravan-ezhumalai-31a385133" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <span class="pill reveal"><span class="pulse"></span>Available now · Immediate joiner</span>
+    <h1 class="reveal d1">Hi, I'm <span class="gt">Kathiravan<br>Ezhumalai</span></h1>
+    <div class="typed reveal d2" aria-live="polite"><b id="typed">Senior React Developer</b><span class="caret"></span></div>
+    <p class="lede reveal d2">I build fast, accessible, enterprise-scale web apps with React 18, TypeScript, Redux Toolkit, GraphQL and Micro Frontends, delivered for US and EU clients over 8+ years.</p>
+    <div class="cta reveal d3">
+      <a class="btn primary" href="#projects">View my work →</a>
+      <a class="btn" href="mailto:kathir.kmr52@gmail.com">✉ Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/kathiravan-ezhumalai-31a385133" target="_blank" rel="noopener">in LinkedIn ↗</a>
     </div>
-    <div class="meta">
-      <span>📍 Chennai | Bangalore</span>
-      <span class="badge">Immediate Joiner</span>
-    </div>
+    <div class="loc reveal d3">📍 Chennai · Bangalore</div>
+    <div class="scroll" aria-hidden="true"></div>
   </header>
 
   <div class="stats">
-    <div class="stat"><b>8+</b><span>years in frontend</span></div>
-    <div class="stat"><b>10+</b><span>enterprise projects</span></div>
-    <div class="stat"><b>68 → 94</b><span>Lighthouse score</span></div>
-    <div class="stat"><b>85%</b><span>unit-test coverage</span></div>
+    <div class="stat reveal" style="--accent:var(--c1)"><b data-count="8" data-suffix="+">0</b><span>years in frontend</span></div>
+    <div class="stat reveal d1" style="--accent:var(--c2)"><b data-count="10" data-suffix="+">0</b><span>enterprise projects</span></div>
+    <div class="stat reveal d2" style="--accent:var(--c4)"><b data-count="94" data-prefix="68 → ">0</b><span>Lighthouse score</span></div>
+    <div class="stat reveal d3" style="--accent:var(--c3)"><b data-count="85" data-suffix="%">0</b><span>unit-test coverage</span></div>
   </div>
+</main>
 
+<div class="marquee" aria-label="Technologies">
+  <div class="track">
+    <span class="chip">React 18</span><span class="chip">TypeScript</span><span class="chip">Redux Toolkit</span><span class="chip">GraphQL</span><span class="chip">Next.js</span><span class="chip">Module Federation</span><span class="chip">Micro Frontends</span><span class="chip">Jest</span><span class="chip">React Testing Library</span><span class="chip">Ant Design</span><span class="chip">Material UI</span><span class="chip">WCAG 2.1</span><span class="chip">Webpack</span><span class="chip">Apollo Client</span><span class="chip">SASS</span>
+    <span class="chip" aria-hidden="true">React 18</span><span class="chip" aria-hidden="true">TypeScript</span><span class="chip" aria-hidden="true">Redux Toolkit</span><span class="chip" aria-hidden="true">GraphQL</span><span class="chip" aria-hidden="true">Next.js</span><span class="chip" aria-hidden="true">Module Federation</span><span class="chip" aria-hidden="true">Micro Frontends</span><span class="chip" aria-hidden="true">Jest</span><span class="chip" aria-hidden="true">React Testing Library</span><span class="chip" aria-hidden="true">Ant Design</span><span class="chip" aria-hidden="true">Material UI</span><span class="chip" aria-hidden="true">WCAG 2.1</span><span class="chip" aria-hidden="true">Webpack</span><span class="chip" aria-hidden="true">Apollo Client</span><span class="chip" aria-hidden="true">SASS</span>
+  </div>
+</div>
+
+<div class="wrap">
   <section id="projects">
-    <h2>Selected projects</h2>
+    <div class="kicker reveal">// selected work</div>
+    <h2 class="reveal">Projects that <span class="gt">shipped</span></h2>
     <div class="projects">
-      <article class="card">
+      <article class="card reveal" style="--accent:var(--c1)">
+        <span class="glow"></span>
+        <div class="icon">📞</div>
         <div class="kind">UCaaS / CCaaS platform</div>
         <h3>Worktual</h3>
         <ul>
-          <li>Architected and built the platform from scratch with <span class="hl">30+</span> reusable, type-safe React components.</li>
-          <li>Cut API calls by <span class="hl">25%</span> with Redux Toolkit caching and memoization.</li>
-          <li>Improved load performance by <span class="hl">35%</span>; Lighthouse 92+, 85% test coverage.</li>
+          <li>Architected the platform from scratch with <b>30+</b> reusable, type-safe React components.</li>
+          <li>Cut API calls by <b>25%</b> using Redux Toolkit caching and memoization.</li>
+          <li>Load performance up <b>35%</b>; Lighthouse 92+, 85% test coverage.</li>
         </ul>
-        <div class="tags"><span class="tag">React 18</span><span class="tag">TypeScript</span><span class="tag">Redux Toolkit</span><span class="tag">Ant Design</span><span class="tag">SASS</span><span class="tag">Jest</span></div>
+        <div class="tags"><span class="tag">React 18</span><span class="tag">TypeScript</span><span class="tag">Redux Toolkit</span><span class="tag">Ant Design</span><span class="tag">Jest</span></div>
       </article>
-
-      <article class="card">
+      <article class="card reveal d1" style="--accent:var(--c2)">
+        <span class="glow"></span>
+        <div class="icon">🛒</div>
         <div class="kind">E-commerce web application</div>
         <h3>Bosch</h3>
         <ul>
-          <li>Built catalog, search and filtering, cart, checkout and payments for <span class="hl">2,000+</span> SKUs.</li>
-          <li>Reduced over-fetching by <span class="hl">40%</span> with GraphQL; pagination and infinite scroll.</li>
-          <li>JWT auth, wishlist and order history; UX work lifted conversion by <span class="hl">15%</span>.</li>
+          <li>Catalog, search, cart, checkout and payments for <b>2,000+</b> SKUs.</li>
+          <li>Over-fetching down <b>40%</b> with GraphQL; pagination and infinite scroll.</li>
+          <li>JWT auth, wishlist and order history; conversion rate up <b>15%</b>.</li>
         </ul>
-        <div class="tags"><span class="tag">React</span><span class="tag">Material UI</span><span class="tag">GraphQL</span><span class="tag">Apollo</span><span class="tag">Magento 2</span><span class="tag">Adobe Commerce</span></div>
+        <div class="tags"><span class="tag">React</span><span class="tag">Material UI</span><span class="tag">GraphQL</span><span class="tag">Apollo</span><span class="tag">Adobe Commerce</span></div>
       </article>
-
-      <article class="card">
+      <article class="card reveal" style="--accent:var(--c4)">
+        <span class="glow"></span>
+        <div class="icon">📈</div>
         <div class="kind">Financial services portal</div>
         <h3>Northwestern Mutual</h3>
         <ul>
-          <li>Customer-facing features for a portal serving <span class="hl">100K+</span> users.</li>
-          <li>Financial charts and sortable, filterable data tables over CRUD REST APIs.</li>
-          <li>Load time <span class="hl">4.2s → 2.5s</span>, Time to Interactive down 40%, 100+ test cases.</li>
+          <li>Customer-facing features for a portal serving <b>100K+</b> users.</li>
+          <li>Financial charts and sortable, filterable data tables over REST APIs.</li>
+          <li>Load time <b>4.2s → 2.5s</b>; Time to Interactive down 40%.</li>
         </ul>
-        <div class="tags"><span class="tag">React</span><span class="tag">Redux Toolkit</span><span class="tag">Luna Design System</span><span class="tag">Jest</span><span class="tag">WCAG</span></div>
+        <div class="tags"><span class="tag">React</span><span class="tag">Redux Toolkit</span><span class="tag">Luna Design System</span><span class="tag">WCAG</span></div>
       </article>
-
-      <article class="card">
+      <article class="card reveal d1" style="--accent:var(--c3)">
+        <span class="glow"></span>
+        <div class="icon">🧩</div>
         <div class="kind">Micro frontend e-commerce</div>
         <h3>Nu Skin</h3>
         <ul>
-          <li><span class="hl">4</span> independently deployable modules with Webpack Module Federation.</li>
-          <li>Deployment frequency up <span class="hl">50%</span>; shared state via Redux, Context and a custom event bus.</li>
-          <li>Mobile-first, WCAG-compliant UI; 100+ bugs fixed, stability up 30%.</li>
+          <li><b>4</b> independently deployable modules with Module Federation.</li>
+          <li>Deployment frequency up <b>50%</b>; shared state via Redux, Context and an event bus.</li>
+          <li>Mobile-first WCAG UI; 100+ bugs fixed, stability up <b>30%</b>.</li>
         </ul>
-        <div class="tags"><span class="tag">React</span><span class="tag">Module Federation</span><span class="tag">Webpack</span><span class="tag">Context API</span><span class="tag">Foundation UI</span></div>
+        <div class="tags"><span class="tag">React</span><span class="tag">Module Federation</span><span class="tag">Webpack</span><span class="tag">Foundation UI</span></div>
       </article>
     </div>
   </section>
 
   <section id="experience">
-    <h2>Experience</h2>
+    <div class="kicker reveal">// career</div>
+    <h2 class="reveal">Where I've <span class="gt">worked</span></h2>
     <div class="timeline">
-      <div class="job">
+      <div class="job reveal" style="--accent:var(--c1)">
         <div class="top"><h3>Consultant / Senior React Developer</h3><span class="when">Oct 2024 – Aug 2026</span></div>
         <div class="org">Infosys Limited, Chennai</div>
         <ul>
-          <li>Led frontend architecture for 3+ enterprise accounts supporting 50K+ end users.</li>
-          <li>Cut page load by 35% (4.5s → 2.9s) via code splitting, lazy loading and memoization.</li>
-          <li>Delivered 15+ features across onshore/offshore Agile teams; mentored 2 junior developers.</li>
+          <li>Led frontend architecture for 3+ enterprise accounts supporting 50K+ users.</li>
+          <li>Page load cut 35% (4.5s → 2.9s); Lighthouse 68 → 94.</li>
+          <li>Shipped 15+ features in Agile teams; mentored 2 junior developers.</li>
         </ul>
       </div>
-      <div class="job">
+      <div class="job reveal" style="--accent:var(--c2)">
         <div class="top"><h3>UI Developer</h3><span class="when">Nov 2019 – Aug 2023</span></div>
         <div class="org">Vectone India Mobile Services Pvt Ltd</div>
         <ul>
-          <li>Built responsive UCaaS/CCaaS platforms for 10K+ enterprise users globally.</li>
-          <li>Created a 50+ component library that reduced development time by 30%.</li>
-          <li>Integrated 20+ REST APIs; turned Figma and Adobe XD designs into WCAG-compliant React UI.</li>
+          <li>Built UCaaS/CCaaS platforms for 10K+ enterprise users worldwide.</li>
+          <li>Created a 50+ component library, cutting development time by 30%.</li>
+          <li>Integrated 20+ REST APIs; turned Figma and Adobe XD designs into WCAG-compliant UI.</li>
         </ul>
       </div>
-      <div class="job">
+      <div class="job reveal" style="--accent:var(--c3)">
         <div class="top"><h3>Senior Software Developer</h3><span class="when">May 2017 – Oct 2019</span></div>
         <div class="org">Innospire Systems Corporation</div>
         <ul>
-          <li>Built hybrid mobile apps for US clients, improving mobile performance by 40%.</li>
-          <li>Owned features end to end, from requirements through testing and debugging.</li>
+          <li>Built hybrid mobile apps for US clients; mobile performance up 40%.</li>
+          <li>Owned features end to end, from requirements to testing.</li>
         </ul>
       </div>
     </div>
   </section>
 
   <section id="skills">
-    <h2>Skills</h2>
+    <div class="kicker reveal">// toolkit</div>
+    <h2 class="reveal">Skills &amp; <span class="gt">stack</span></h2>
     <div class="skills">
-      <div class="skill"><h4>Frontend</h4><div class="tags"><span class="tag">React 18</span><span class="tag">TypeScript</span><span class="tag">JavaScript ES6+</span><span class="tag">Next.js</span><span class="tag">HTML5</span><span class="tag">CSS3 / SASS</span><span class="tag">Bootstrap</span></div></div>
-      <div class="skill"><h4>State &amp; UI</h4><div class="tags"><span class="tag">Redux Toolkit</span><span class="tag">React Hooks</span><span class="tag">Context API</span><span class="tag">React Hook Form</span><span class="tag">Ant Design</span><span class="tag">Material UI</span></div></div>
-      <div class="skill"><h4>Architecture</h4><div class="tags"><span class="tag">Micro Frontends</span><span class="tag">Module Federation</span><span class="tag">Webpack</span><span class="tag">GraphQL</span><span class="tag">Apollo Client</span><span class="tag">REST APIs</span></div></div>
-      <div class="skill"><h4>Testing &amp; performance</h4><div class="tags"><span class="tag">Jest</span><span class="tag">React Testing Library</span><span class="tag">Code splitting</span><span class="tag">Lazy loading</span><span class="tag">Memoization</span></div></div>
-      <div class="skill"><h4>Accessibility</h4><div class="tags"><span class="tag">WCAG 2.1</span><span class="tag">ADA</span><span class="tag">ARIA</span><span class="tag">Responsive design</span><span class="tag">Cross-browser</span></div></div>
-      <div class="skill"><h4>Tools</h4><div class="tags"><span class="tag">Git / GitHub</span><span class="tag">Jira</span><span class="tag">Azure DevOps</span><span class="tag">Figma</span><span class="tag">CI/CD</span><span class="tag">GitHub Copilot</span></div></div>
+      <div class="skill reveal" style="--accent:var(--c1)"><h4><span></span>Frontend</h4><div class="bar"><i style="--w:96%"></i></div><div class="tags"><span class="tag">React 18</span><span class="tag">TypeScript</span><span class="tag">JavaScript ES6+</span><span class="tag">Next.js</span><span class="tag">HTML5</span><span class="tag">SASS</span></div></div>
+      <div class="skill reveal d1" style="--accent:var(--c2)"><h4><span></span>State &amp; UI</h4><div class="bar"><i style="--w:92%"></i></div><div class="tags"><span class="tag">Redux Toolkit</span><span class="tag">Hooks</span><span class="tag">Context API</span><span class="tag">React Hook Form</span><span class="tag">Ant Design</span><span class="tag">MUI</span></div></div>
+      <div class="skill reveal d2" style="--accent:var(--c4)"><h4><span></span>Architecture</h4><div class="bar"><i style="--w:88%"></i></div><div class="tags"><span class="tag">Micro Frontends</span><span class="tag">Module Federation</span><span class="tag">Webpack</span><span class="tag">GraphQL</span><span class="tag">REST</span></div></div>
+      <div class="skill reveal" style="--accent:var(--c3)"><h4><span></span>Testing &amp; performance</h4><div class="bar"><i style="--w:90%"></i></div><div class="tags"><span class="tag">Jest</span><span class="tag">RTL</span><span class="tag">Code splitting</span><span class="tag">Lazy loading</span><span class="tag">Memoization</span></div></div>
+      <div class="skill reveal d1" style="--accent:var(--c5)"><h4><span></span>Accessibility</h4><div class="bar"><i style="--w:90%"></i></div><div class="tags"><span class="tag">WCAG 2.1</span><span class="tag">ADA</span><span class="tag">ARIA</span><span class="tag">Responsive</span><span class="tag">Cross-browser</span></div></div>
+      <div class="skill reveal d2" style="--accent:var(--c2)"><h4><span></span>Tools &amp; AI</h4><div class="bar"><i style="--w:86%"></i></div><div class="tags"><span class="tag">Git</span><span class="tag">Jira</span><span class="tag">Azure DevOps</span><span class="tag">Figma</span><span class="tag">CI/CD</span><span class="tag">Copilot</span></div></div>
     </div>
   </section>
 
   <section>
-    <h2>Education &amp; highlights</h2>
     <div class="two">
-      <div class="skill">
-        <h4>Education</h4>
+      <div class="skill reveal" style="--accent:var(--c4)"><h4><span></span>🎓 Education</h4>
         <b>Master of Computer Applications (MCA)</b><br>
-        SVS Institute of Computer Application, Anna University<br>
-        <span style="color:var(--muted)">2014 · First Class with Distinction (72%)</span>
+        <span style="color:var(--muted)">SVS Institute of Computer Application, Anna University · 2014<br>First Class with Distinction (72%)</span>
       </div>
-      <div class="skill">
-        <h4>Highlights</h4>
-        <ul style="margin:0;padding-left:18px">
+      <div class="skill reveal d1" style="--accent:var(--c5)"><h4><span></span>🏆 Highlights</h4>
+        <ul>
           <li>90%+ SonarQube quality gate</li>
           <li>0 critical production bugs for 12 months</li>
           <li>20+ knowledge-sharing sessions led</li>
-          <li>English (professional), Tamil (native)</li>
+          <li>English (professional) · Tamil (native)</li>
         </ul>
       </div>
     </div>
   </section>
-</main>
 
-<footer id="contact">
-  <div class="wrap">
-    <h2>Let's work together</h2>
-    <p style="margin:0;color:var(--muted)">Open to Senior React / Frontend Lead roles. Available to join immediately.</p>
-    <div class="contact">
-      <a class="btn primary" href="mailto:kathir.kmr52@gmail.com">kathir.kmr52@gmail.com</a>
-      <a class="btn" href="https://www.linkedin.com/in/kathiravan-ezhumalai-31a385133" target="_blank" rel="noopener">LinkedIn ↗</a>
+  <div class="contact reveal" id="contact">
+    <div class="kicker">// let's talk</div>
+    <h2>Let's build something <span class="gt">great</span></h2>
+    <p>Open to Senior React and Frontend Lead roles. Available to join immediately.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:kathir.kmr52@gmail.com">✉ kathir.kmr52@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/kathiravan-ezhumalai-31a385133" target="_blank" rel="noopener">in LinkedIn ↗</a>
     </div>
-    <p class="small">© 2026 Kathiravan Ezhumalai</p>
   </div>
-</footer>
+  <footer>© 2026 Kathiravan Ezhumalai · Built with ♥ and React know-how</footer>
+</div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // reveal on scroll + counters
+  function count(el){
+    var to=+el.dataset.count, pre=el.dataset.prefix||'', suf=el.dataset.suffix||'';
+    if(reduce){el.textContent=pre+to+suf;return}
+    var t0=null;
+    function step(t){ if(!t0)t0=t; var p=Math.min((t-t0)/1400,1), e=1-Math.pow(1-p,3);
+      el.textContent=pre+Math.round(to*e)+suf; if(p<1)requestAnimationFrame(step); }
+    requestAnimationFrame(step);
+  }
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(!e.isIntersecting)return;
+      e.target.classList.add('in');
+      e.target.querySelectorAll('[data-count]').forEach(count);
+      io.unobserve(e.target); });
+  },{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+  // typing roles
+  var roles=['Senior React Developer','Frontend Lead','Micro Frontend Architect','Performance & Accessibility Specialist'];
+  var el=document.getElementById('typed');
+  if(!reduce){
+    var r=0,i=roles[0].length,del=true;
+    setTimeout(function tick(){
+      var w=roles[r];
+      if(del){ i--; if(i<=0){del=false;r=(r+1)%roles.length;} }
+      else { i++; if(i>=roles[r].length){del=true; el.textContent=roles[r]; return setTimeout(tick,1800);} }
+      el.textContent=roles[r].slice(0,Math.max(i,0));
+      setTimeout(tick, del?40:75);
+    },2200);
+  }
+
+  // scroll progress + active nav
+  var bar=document.getElementById('progress'), links=document.querySelectorAll('nav ul a');
+  addEventListener('scroll',function(){
+    var h=document.documentElement; bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+    links.forEach(function(a){ var s=document.querySelector(a.getAttribute('href'));
+      if(!s)return; var r=s.getBoundingClientRect(); a.classList.toggle('on', r.top<120 && r.bottom>120); });
+  },{passive:true});
+
+  // card tilt + glow follow
+  if(!reduce && matchMedia('(hover:hover)').matches){
+    document.querySelectorAll('.card').forEach(function(c){
+      var g=c.querySelector('.glow');
+      c.addEventListener('mousemove',function(e){
+        var b=c.getBoundingClientRect(), x=e.clientX-b.left, y=e.clientY-b.top;
+        c.style.transform='perspective(900px) rotateX('+((y/b.height-.5)*-6)+'deg) rotateY('+((x/b.width-.5)*6)+'deg) translateY(-4px)';
+        g.style.left=x+'px'; g.style.top=y+'px';
+      });
+      c.addEventListener('mouseleave',function(){c.style.transform=''});
+    });
+  }
+})();
+</script>
 </body>
 </html>
